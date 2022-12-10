@@ -92,23 +92,23 @@ public class BookDTO {
 
 			}
 			else if( chnge == 2) {
-				System.out.println("Enter  Title of the Book to update existing data");
+				System.out.println("Enter  bookAuthor of the Book to update existing data");
 		         String bookAuthor = sc.next();
 		         bookList.get(0).setBookAuthor(bookAuthor);
 			}
 			else if( chnge == 3) {
-				System.out.println("Enter  Title of the Book to update existing data");
+				System.out.println("Enter  bookGenre of the Book to update existing data");
 		         String bookGenre = sc.next();
 		         bookList.get(0).setBookGenre(bookGenre);
 			}
 			
 			else if( chnge == 4) {
-				System.out.println("Enter  Title of the Book to update existing data");
+				System.out.println("Enter  bookEdition of the Book to update existing data");
 		         int bookEdition = sc.nextInt();
 		         bookList.get(0).setBookEdition(bookEdition);
 			}
 			else if( chnge == 5) {
-				System.out.println("Enter  Title of the Book to update existing data");
+				System.out.println("Enter  bookPrice of the Book to update existing data");
 		         int bookPrice = sc.nextInt();
 		         bookList.get(0).setBookPrice(bookPrice);
 			}
