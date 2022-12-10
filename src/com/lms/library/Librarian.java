@@ -14,6 +14,7 @@ public class Librarian extends Thread implements Serializable{
 		BookDTO bookDTO = new BookDTO();
 		BookDAO bookAccessObject = bookDTO.bookDAO();
 		
+		
 		do{
 			
 		
@@ -81,6 +82,7 @@ public class Librarian extends Thread implements Serializable{
 			
 			
 		}
+		
 		else if(choice == 3)
 		{
 			System.out.println("Enter the book author for searching that perticular book");
@@ -115,38 +117,15 @@ public class Librarian extends Thread implements Serializable{
 			int bookPrice = sc.nextInt();
 			Book b = new Book(bookTitle, bookAuthor, bookGenre, bookEdition, bookPrice);
 
-			boolean check = bookAccessObject.updateBook(b);
-			System.out.println(check);
-			if(check) {
-				
-				System.out.println(BookDTO.getBookList());
-				System.out.println("Updated");
-			}
-			else {
-				System.out.println("ENTER A VALID DETAILS");
-			}
+			 bookAccessObject.updateBook(b);
+			 System.out.println("Book updated successfully");
+
 		}
 		
 		else if(choice == 6)
 		{
-			System.out.println("Enter bookTitle : ");
-			String bookTitle = sc.next();
 			
-			System.out.println("Enter bookAuthor : ");
-			String bookAuthor = sc.next();
-			
-			System.out.println("Enter bookGenre : ");
-			String bookGenre = sc.next();
-			
-			System.out.println("Enter bookEdition : ");
-			int bookEdition = sc.nextInt();
-			
-			System.out.println("Enter bookPrice : ");
-			int bookPrice = sc.nextInt();
-			
-			Book b3 = new Book(bookTitle,bookAuthor,bookGenre,bookPrice,bookEdition);
-			
-			bookAccessObject.removeBook(b3);
+			System.out.println(bookAccessObject.removeBook(bookAccessObject.b));
 			
 		}
 		else

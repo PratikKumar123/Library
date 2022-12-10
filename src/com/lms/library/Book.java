@@ -17,7 +17,10 @@ public class Book {
 		this.bookPrice = bookPrice;
 	}
 	
-	public Book() {
+	public Book(String bookTitle  ) {
+		
+		this.bookTitle=bookTitle;
+		
 		
 	}
 

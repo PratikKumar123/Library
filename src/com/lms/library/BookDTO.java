@@ -19,10 +19,18 @@ public class BookDTO {
 	public static void setBookList(ArrayList<Book> bookList) {
 		BookDTO.bookList = bookList;
 	}
+	
+	public void checkIfEmpty() {
+		if(bookList.isEmpty()) {
+			System.out.println(" Please search a right book , or we do not have any existence of that book");
+		}
+	}
+	
 
 
 	public class BookDAOImp implements BookDAO
 	{
+		
 
 		@Override
 		public void addBook(Book book) {
@@ -32,7 +40,7 @@ public class BookDTO {
 
 		@Override
 		public ArrayList<Book> searchBookByTitle(String bookTitle) {
-			
+			checkIfEmpty();
 			for(Book t : bookList) {
 				if(t.getBookTitle().equals(bookTitle)) {
 					System.out.println("Books Information are : - Author of book is : "+t.getBookAuthor() + " book Edition is " +t.getBookEdition());
@@ -46,6 +54,7 @@ public class BookDTO {
 
 		@Override
 		public ArrayList<Book> searchBookByAuthor(String bookAuthor) {
+			checkIfEmpty();
 			for(Book a : bookList) {
 				if(a.getBookAuthor().equals(bookAuthor)) {
 					System.out.println("Books Information are : - Title of book is : "+a.getBookTitle() + " book Edition is " +a.getBookEdition());
@@ -59,7 +68,7 @@ public class BookDTO {
 
 		@Override
 		public Book search(String bookTitle, String bookAuthor, String bookGenre, int bookEdition, int bookPrice) {
-			
+			checkIfEmpty();
 			for(Book s : bookList) {
 				if(s.getBookTitle().equals(bookTitle) && s.getBookAuthor().equals(bookAuthor) && s.getBookGenre().equals(bookGenre) && s.getBookEdition()==bookEdition &&s.getBookPrice()==bookPrice ) {
 					System.out.println("Books Information are : - Title of book is : "+s.getBookTitle() + " book Edition is " +s.getBookEdition() + "book Author is "+s.getBookAuthor());
@@ -75,7 +84,7 @@ public class BookDTO {
 
 		@Override
 		public boolean updateBook(Book book) {
-			
+			checkIfEmpty();
 
 			System.out.println("Which of the field you want to update \n Click 1 to update Title \n, "
 					+ "Click 2 to update Author \n" + "Click 3 to update Genre \n" + "Click 4 to update Edition \n "+"Click 5 to update Price \n");
@@ -124,28 +133,21 @@ public class BookDTO {
 
 		@Override
 		public boolean removeBook(Book book) {
-			
-			ArrayList<Book> bookList = BookDTO.getBookList();
-			
-			if(bookList.equals(book)) {
-				
-//				bookList.remove(book);
-//				
-//				System.out.println("Book deleted successfully");
-				
-			}else {
-				System.out.println("Enter details correctly or your book is not found");
+			checkIfEmpty();
+			for(int i =0; i<bookList.size();i++) {
+				bookList.remove(i);
 			}
-			
+			if(bookList.isEmpty()) {
+				System.out.println("Book Deleted successfully: ");
+				return true;
+				
+			}
 			
 			return false;
 		}
+		
 
-		@Override
-		public int searchBook(Book book) {
-			
-			return 0;
-		}
+
 				
 
 	}
