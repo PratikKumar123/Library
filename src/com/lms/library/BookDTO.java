@@ -134,16 +134,28 @@ public class BookDTO {
 		@Override
 		public boolean removeBook(Book book) {
 			checkIfEmpty();
-			for(int i =0; i<bookList.size();i++) {
-				bookList.remove(i);
-			}
-			if(bookList.isEmpty()) {
-				System.out.println("Book Deleted successfully: ");
-				return true;
-				
-			}
 			
-			return false;
+			int index = searchBook(book);
+
+			if (index == -1) {
+				return false;
+			}
+			bookList.remove(index);
+			return true;
+			
+		}
+		
+		public int searchBook(Book book) {
+			int i =0;
+			for (Book book2: bookList) {
+				if (book2.getBookTitle().equals(book.getBookTitle()) &&book2.getBookAuthor().equals(book.getBookAuthor()) &&book2.getBookGenre().equals(book.getBookGenre()) &&book2.getBookEdition() == book.getBookEdition() &&book2.getBookPrice() == book.getBookPrice()) {
+						return i;
+
+				}
+				i++;
+			}
+			return -1;
+
 		}
 		
 
