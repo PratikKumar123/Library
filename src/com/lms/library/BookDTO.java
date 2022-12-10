@@ -38,7 +38,7 @@ public class BookDTO {
 					System.out.println("Books Information are : - Author of book is : "+t.getBookAuthor() + " book Edition is " +t.getBookEdition());
 					System.out.println(" book genre is : "+t.getBookGenre() + " book price is " +t.getBookPrice());
 				}else {
-					System.out.println("Enter correct title or your book is not added yet");
+					System.out.println("Enter title or your book is not added yet");
 				}
 			}
 			return null;
@@ -75,56 +75,46 @@ public class BookDTO {
 
 		@Override
 		public boolean updateBook(Book book) {
+			
+
 			System.out.println("Which of the field you want to update \n Click 1 to update Title \n, "
-					+ " Click 2 to update Author \n" + " Click 3 to update Genre \n" + "Click 4 to update Edition \n "+"Click 5 to update Price \n");
+					+ "Click 2 to update Author \n" + "Click 3 to update Genre \n" + "Click 4 to update Edition \n "+"Click 5 to update Price \n");
 			
 			System.out.println("Enter no between 1 to 6 : ");
 			
 			int chnge = sc.nextInt();
+			
 			if(chnge == 1) {
 				
-				Book b1 = new Book();
-				
-				System.out.println("Enter to update title :");
-				String bt = sc.next();
-				
-				b1.setBookTitle(bt);
+				System.out.println("Enter  Title of the Book to update existing data");
+		         String bookTitle = sc.next();
+		         bookList.get(0).setBookTitle(bookTitle);
 
 			}
 			else if( chnge == 2) {
-				Book b2 = new Book();
-				
-				System.out.println("Enter to update bookAuthor :");
-				String bt2 = sc.next();
-				
-				b2.setBookAuthor(bt2);
+				System.out.println("Enter  Title of the Book to update existing data");
+		         String bookAuthor = sc.next();
+		         bookList.get(0).setBookAuthor(bookAuthor);
 			}
 			else if( chnge == 3) {
-				Book b3 = new Book();
-				
-				System.out.println("Enter to update title :");
-				String bt3 = sc.next();
-				
-				b3.setBookGenre(bt3);
+				System.out.println("Enter  Title of the Book to update existing data");
+		         String bookGenre = sc.next();
+		         bookList.get(0).setBookGenre(bookGenre);
 			}
+			
 			else if( chnge == 4) {
-				Book b4 = new Book();
-				
-				System.out.println("Enter to update title :");
-				int bt4 = sc.nextInt();
-				
-				b4.setBookEdition(bt4);;
+				System.out.println("Enter  Title of the Book to update existing data");
+		         int bookEdition = sc.nextInt();
+		         bookList.get(0).setBookEdition(bookEdition);
 			}
 			else if( chnge == 5) {
-				Book b5 = new Book();
-				
-				System.out.println("Enter to update title :");
-				int bt5 = sc.nextInt();
-				
-				b5.setBookPrice(bt5);;
+				System.out.println("Enter  Title of the Book to update existing data");
+		         int bookPrice = sc.nextInt();
+		         bookList.get(0).setBookPrice(bookPrice);
 			}
+			
 			else  {
-				System.out.println("Can't modify ! please enter no between 1 to 6");
+				System.out.println("Can't modify ! please enter no between 1 to 5");
 				
 			}
 
@@ -153,7 +143,7 @@ public class BookDTO {
 
 		@Override
 		public int searchBook(Book book) {
-			// TODO Auto-generated method stub
+			
 			return 0;
 		}
 				

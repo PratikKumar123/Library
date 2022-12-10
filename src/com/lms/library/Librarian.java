@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Librarian extends Thread implements Serializable{
 	
 	private Scanner sc = new Scanner(System.in);
@@ -98,25 +99,32 @@ public class Librarian extends Thread implements Serializable{
 		}
 		else if(choice == 5)
 		{
-			System.out.println("Enter bookTitle : ");
+			System.out.println("Enter the Book Title");
 			String bookTitle = sc.next();
-			
-			System.out.println("Enter bookAuthor : ");
+
+			System.out.println("Enter Book Author Name");
 			String bookAuthor = sc.next();
-			
-			System.out.println("Enter bookGenre : ");
+
+			System.out.println("Enter Book Genre");
 			String bookGenre = sc.next();
-			
-			System.out.println("Enter bookEdition : ");
-			int bookEdition = sc.nextInt();
-			
-			System.out.println("Enter bookPrice : ");
+
+			System.out.println("Enter the Book Edition");
+			int bookEdition= sc.nextInt();
+
+			System.out.println("Enter book price");
 			int bookPrice = sc.nextInt();
-			
-			
-			Book b8 = new Book(bookTitle,bookAuthor,bookGenre,bookPrice,bookEdition);
-			
-			bookAccessObject.updateBook(b8);
+			Book b = new Book(bookTitle, bookAuthor, bookGenre, bookEdition, bookPrice);
+
+			boolean check = bookAccessObject.updateBook(b);
+			System.out.println(check);
+			if(check) {
+				
+				System.out.println(BookDTO.getBookList());
+				System.out.println("Updated");
+			}
+			else {
+				System.out.println("ENTER A VALID DETAILS");
+			}
 		}
 		
 		else if(choice == 6)
